@@ -1,0 +1,40 @@
+https://linuxhint.com/mysql-primary-and-foreign-keys/
+https://www.mysqltutorial.org/mysql-data-types.aspx
+
+INSERT INTO USERROLE (rolename) VALUES ("ROLE_ENTERPRISE");
+
+INSERT INTO USERROLE (rolename) VALUES ("ROLE_FINANCE");
+
+INSERT INTO USERROLE (rolename) VALUES ("ROLE_ADMIN");
+
+{
+   "auth":false,
+   "message":"user doesnot exist!"
+}
+
+CREATE TABLE USERROLE (role_id INT(10)  NOT NULL AUTO_INCREMENT,rolename VARCHAR(20),PRIMARY KEY (role_id))
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| role_id  | int(10)     | NO   | PRI | NULL    | auto_increment |
+| rolename | varchar(20) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+CREATE TABLE USER (user_pk INT(10)  NOT NULL AUTO_INCREMENT,username VARCHAR(20),email VARCHAR(20),contact_number VARCHAR(20),password VARCHAR(500),role_fk INT(10),isauth BOOLEAN,parent_id INT(10),creator VARCHAR(20),creationtime DATETIME DEFAULT CURRENT_TIMESTAMP,modificationtime DATETIME default now(),PRIMARY KEY (user_pk),FOREIGN KEY (role_fk) REFERENCES USERROLE(role_id));
+
++------------------+--------------+------+-----+-------------------+----------------+
+| Field            | Type         | Null | Key | Default           | Extra          |
++------------------+--------------+------+-----+-------------------+----------------+
+| user_pk          | int(10)      | NO   | PRI | NULL              | auto_increment |
+| username         | varchar(20)  | YES  |     | NULL              |                |
+| email            | varchar(20)  | YES  |     | NULL              |                |
+| contact_number   | varchar(20)  | YES  |     | NULL              |                |
+| password         | varchar(500) | YES  |     | NULL              |                |
+| role_fk          | int(10)      | YES  | MUL | NULL              |                |
+| isauth           | tinyint(1)   | YES  |     | NULL              |                |
+| parent_id        | int(10)      | YES  |     | NULL              |                |
+| creator          | varchar(20)  | YES  |     | NULL              |                |
+| creationtime     | datetime     | YES  |     | CURRENT_TIMESTAMP |                |
+| modificationtime | datetime     | YES  |     | CURRENT_TIMESTAMP |                |
++------------------+--------------+------+-----+-------------------+----------------+
+
