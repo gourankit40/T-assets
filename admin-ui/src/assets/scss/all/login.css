@@ -1,0 +1,260 @@
+.login{
+  background: #0D3E69;
+}
+.login .img-sec {
+    height: 100vh;
+    padding: 0px;
+    /* background: lightsteelblue; */
+  }
+  .login .image {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover;
+    object-position: 0% 50%; */
+  }
+  
+  .login .input-title {
+    font-size: 12px;
+    letter-spacing: 0px;
+    color: #5a5f7d;
+    margin: 0px;
+  }
+  .login .form-control {
+    /* background: #eff1f7 0% 0% no-repeat padding-box;
+    border: 1px solid #d6ddf0; */
+    height: calc(2.0625rem + 5px);
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .login .login-btn {
+    margin-top: 10px;
+    background: #26DB1D;
+    color: #fff;
+    /* height: 48px; */
+    font-weight: 500;
+    width: 170px;
+    padding: 7px 15%;
+    border-radius: 10px;
+    border:none;
+  }
+
+  .login .login-btn:hover
+  {
+    background: #fff;
+    color: #26DB1D;
+
+  }
+  .login .login-btn a {
+    color: #fff;
+  }
+  .login .content-center {
+    /* display: flex; */
+    justify-content: center;
+   
+    align-items: center;
+    margin-top: 10%;
+    padding: 0% 7%;
+  }
+  
+  .login .blank-text {
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #665df5;
+    text-align: center;
+  }
+  .login .f-password {
+    text-align: right;
+    font-size: 16px;
+    color: #272b41;
+    margin: 0px 0px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .login .f-password a {
+    font-size: 12px;
+    color: #fff;
+    text-align: left;
+    font-weight: 100;
+  }
+  .login .nt-register-txt {
+   
+    font-size: 12px;
+    color: #fff;
+    text-align: left;
+    font-weight: 100;
+  }
+  .login .signup a {
+    font-weight: 500;
+    color: #665df5;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .login .sp-login {
+    text-align: center;
+    color: #5a5f7d;
+    margin-top: 6px;
+  }
+  .login .sp-login span {
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    padding: 4px 18px 8px 18px;
+    font-weight: 500;
+  }
+  .login .or {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .login .input-spacing {
+    margin-bottom: 22px !important;
+  }
+  @media only screen and (max-width: 1024px) {
+    .login .img-sec {
+      display: none;
+    }
+    .login .content-center {
+      height: 100vh;
+    }
+  }
+ 
+  .loginuppr
+  {
+    margin: 0 5%;
+      background: #fff;
+      border-radius: 20px;
+  }
+  .margin-left-20
+  {
+  margin-left: 20px;
+  }
+  .displayb
+  {
+    display: block;
+  }
+  .lbw
+  {
+    width: 150px;
+    padding: 4px 2rem;
+      font-size: 17px;
+      border-radius: 25px;
+      background: #52a577;
+  }
+  .form-control:focus
+  {
+    box-shadow: none;
+  }
+  .joinnowtext
+  {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20%;
+  }
+  .m-t-20-p
+  {
+    margin-top: 20%;
+  }
+  .text-right
+  {
+    text-align: right;
+  }
+  .logina
+  {
+    color:#26DB1D;
+    font-size: 14px;
+    text-decoration: none;
+  }
+ 
+ 
+  .loginimg
+  {
+    width: 100%;
+      border-radius: 20px;
+      height: 100%;
+  }
+  .form-control
+  {
+    border-right: none;
+    border-left: none;
+    border-top: none;
+  }
+  .margin-b-5
+  {
+    margin-bottom: 5px;
+  }
+  .padding-0
+  {
+    padding: 0;
+  }
+  .form-signin {
+    width: 100%;
+    /* max-width: 330px; */
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .logintabcontent
+  {
+    background: #0A355B;
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    color: #fff !important;
+    background-color: #042340 !important;
+    border-color: transparent !important;
+    font-size: 13px;
+}
+
+.nav-tabs .nav-link {
+ 
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px  !important;
+}
+.nav-tabs {
+  border-bottom: 1px solid transparent !important;
+  margin-left: 6%;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color:transparent !important;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 35px !important;
+  background: #072D4F;
+  color: #fff !important;
+    font-weight: 300;
+    
+}
+
+.backlink
+{
+  display: block;
+    text-align: center;
+}
