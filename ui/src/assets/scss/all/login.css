@@ -1,14 +1,18 @@
 .login{
   background: #0D3E69;
+  height:100vh;
 }
 .login .img-sec {
-    height: 100vh;
+    /* height: 100vh; */
     padding: 0px;
     /* background: lightsteelblue; */
   }
   .login .image {
-    width: 100%;
-    height: 100%;
+    width:50%;
+    /* height: 55%; */
+    margin: 20%;
+    margin-bottom: 0;
+    margin-top: 5%;
     /* object-fit: cover;
     object-position: 0% 50%; */
   }
@@ -18,6 +22,7 @@
     letter-spacing: 0px;
     color: #5a5f7d;
     margin: 0px;
+    margin-bottom: 0;
   }
   .login .form-control {
     /* background: #eff1f7 0% 0% no-repeat padding-box;
@@ -37,6 +42,10 @@
     border-radius: 10px;
     border:none;
   }
+  
+  .cursorpionter{
+    cursor: pointer;
+  }
 
   .login .login-btn:hover
   {
@@ -52,10 +61,18 @@
     justify-content: center;
    
     align-items: center;
-    margin-top: 10%;
+    margin-top: 6%;
     padding: 0% 7%;
   }
-  
+
+  .login .content-center-sighup {
+    /* display: flex; */
+    justify-content: center;
+   
+    align-items: center;
+    margin-top: 2%;
+    padding: 0% 7%;
+  }  
   .login .blank-text {
     font-size: 24px;
     letter-spacing: 0px;
@@ -151,7 +168,7 @@
     padding: 15px;
     text-align: center;
     color: #fff;
-    margin-top: 20%;
+    margin-top: 10%;
   }
   .m-t-20-p
   {
@@ -244,7 +261,7 @@
   border-color:transparent !important;
 }
 
-.nav-link {
+.login .nav-link {
   display: block;
   padding: 8px 35px !important;
   background: #072D4F;
@@ -257,4 +274,372 @@
 {
   display: block;
     text-align: center;
+}
+.logintext
+{
+  text-align: center;
+    font-size: 59px;
+    font-weight: lighter;
+    color: #f5f5f5;
+    font-family: 'Nunito Sans';
+    margin-bottom: 0;
+}
+.loginsubtext
+{
+  text-align: center;
+    font-size: 25px;
+    font-weight: lighter;
+    color: #f5f5f5;
+    font-family: 'Nunito Sans';
+    margin-bottom: 0;
+}
+.loginlogo
+{
+  text-align: right;
+}
+
+.loginlogo img{
+  margin-top:2%;
+}
+
+.innerprofile
+{
+  background: #EAEBEB;
+  padding: 25px;
+    border-radius: 15px;
+}
+.sidebar-link img{
+  width:20px;margin-right: 10px;
+
+}
+.selectouter
+{
+  background: #fff;
+  border-radius: 8px;
+  padding: 0px 0 10px 0px;
+  margin:0 20px 0px 0px;
+}
+
+.selectouter label{
+  margin: 0px 0px 0px 10px;;
+    color: #BDBDBD;
+    font-size: 12px;
+}
+
+.selectouter select
+{
+border: 0;
+height: 20px;
+    color: #949494;
+    font-size: 13px;
+    padding: 0 0 0 5px;
+}
+.inputouter
+{
+  background: #fff;
+    border-radius: 8px;
+    padding: 10px 0 10px 0px;
+    margin:0 20px 0px 0px;
+}
+.margin-right-15
+{
+  margin-right: 15px;
+}
+.inputouter input
+{
+border: 0;
+    height: 15px;
+    color: #949494;
+    font-size: 13px;
+    padding: 0 10px
+}
+.inputouter .gxpXXn
+{
+border: none;
+}
+.inputouter label{
+  margin: 5px 0px 0px 10px;;
+    color: #BDBDBD;
+    font-size: 12px;
+}
+.chkwidth
+{
+/* width: 80px; */
+}
+button:focus
+{
+  outline: none !important;
+}
+.chkhead
+{
+  width: 134px;
+  font-weight: 500;
+}
+.profilehead
+{
+  font-size: 15px;
+    color: #0D3E69;
+    font-weight: bold;
+}
+
+.padd-l-0
+{
+  padding-left: 0 !important;
+  margin-bottom:10px;
+}
+.tdback
+{
+  background: #F5F5F5;
+  padding-left: 15px !important;
+   
+}
+
+.tdlabel{
+  /* color: #A5F3A0; */
+  font-size: 11px;
+  
+}
+
+.tdbackf
+{
+  background: #0D3E69;
+  width: 50px;
+}
+.tdbackf input{
+  margin-left: 0px;
+  margin-top: -8px;
+}
+.tdspan{
+  /* color: #fff; */
+  font-weight: 500;
+  font-size: 11px;
+  
+}
+.margin-b-0
+{
+  margin-bottom: 0;
+}
+
+.profilebtntabel
+{
+  /* margin-top: 10px !important; */
+  background: #26DB1D !important;
+  color: #fff !important;
+  font-size: 9px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 14% !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+
+.profilebtnedit
+{
+  /* margin-top: 10px !important; */
+  background: #0D3E69 !important;
+  color: #fff !important;
+  font-size: 9px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 14% !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+.myacaprv
+{
+  /* margin-top: 10px !important; */
+  background: #26DB1D !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 8% !important;
+  border-radius: 10px !important;
+  border: none !important;
+  margin-right: 10px !important;
+}
+
+.myacrjct
+{
+  /* margin-top: 10px !important; */
+  background: #FF5723 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 8% !important;
+  border-radius: 10px !important;
+  border: none !important;
+  margin-right: 10px !important;
+}
+
+
+.myacedit
+{
+  /* margin-top: 10px !important; */
+  background: #0D3E69 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 8% !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+.toknrcv .myacedit
+{
+  margin-right: 15px !important;
+  background: #0D3E69 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 2% !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+
+.toknrcv .myacaprv
+{
+   margin-right: 15px !important;
+   background: #26DB1D !important;
+   color: #fff !important;
+   font-size: 11px !important;
+   /* height: 48px; */
+   font-weight: 500 !important;
+   /* width: 170px !important; */
+   padding: 7px 2% !important;
+   border-radius: 10px !important;
+   border: none !important;
+   margin-right: 10px !important;
+}
+.toknrcv .myacrjct
+{
+  margin-right: 15px !important;
+  background: #FF5723 !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  /* height: 48px; */
+  font-weight: 500 !important;
+  /* width: 170px !important; */
+  padding: 7px 2% !important;
+  border-radius: 10px !important;
+  border: none !important;
+  margin-right: 10px !important;
+}
+
+.profilebtn
+{
+  margin-top: 10px !important;
+    background: #26DB1D !important;
+    color: #fff !important;
+    /* height: 48px; */
+    font-weight: 500 !important;
+    /* width: 170px !important; */
+    padding: 7px 10% !important;
+    border-radius: 10px !important;
+    border: none !important;
+}
+
+
+
+
+.profilebtnreset
+{
+  margin-top: 10px !important;
+    background: #FF5723 !important;
+    color: #fff !important;
+    /* height: 48px; */
+    font-weight: 500 !important;
+    /* width: 170px !important; */
+    padding: 7px 10% !important;
+    border-radius: 10px !important;
+    border: none !important;
+}
+
+.profilebtncancel
+{
+  margin-top: 10px !important;
+    background: #707070 !important;
+    color: #fff !important;
+    /* height: 48px; */
+    font-weight: 500 !important;
+    /* width: 170px !important; */
+    padding: 7px 10% !important;
+    border-radius: 10px !important;
+    border: none !important;
+    display: inline-block;
+   
+    vertical-align: middle;
+}
+
+
+
+.gridtoken
+{
+  padding: 10px 0px 0px 15px !important;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+
+.gridtoken input
+{
+  
+    margin-top: 0;
+}
+
+.padd-l-r-10
+{
+  padding: 5px 0 0 10px;
+}
+.inputouter .text-danger
+{
+font-size: 11px;
+}
+
+.chkp .MuiIconButton-colorSecondary
+{
+  color: #26DB1D !important;
+}
+.MuiCheckbox-colorSecondary.Mui-checked
+{
+  /* color: yellow !important; */
+}
+
+.tdbackf .MuiCheckbox-colorSecondary.Mui-checked
+{
+  /* border: 1px solid greenyellow !important; */
+
+}
+.font-12
+{
+  font-size: 12px;
+}
+
+.loaderparent{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.spinloader {
+  position: relative;
+  top: 40%;
+  left: 50%;
 }

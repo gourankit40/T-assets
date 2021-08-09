@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'reactstrap';
 import PerfectScrollbar from 'react-perfect-scrollbar'
-
 const Sidebar = (props) => {
+    var sideimg = '../../assets/images/';
 
     /*--------------------------------------------------------------------------------*/
     /*To Expand SITE_LOGO With Sidebar-Menu on Hover                                  */
@@ -31,6 +31,10 @@ const Sidebar = (props) => {
                             if (prop.redirect) {
                                 return null;
                             }
+                            else if(prop.show=='inner')
+                            {
+                                return null;
+                            }
                             else {
                                 return (
                                     /*--------------------------------------------------------------------------------*/
@@ -38,7 +42,7 @@ const Sidebar = (props) => {
                                     /*--------------------------------------------------------------------------------*/
                                     <li className={activeRoute(prop.path) + (prop.pro ? ' active active-pro' : '') + ' sidebar-item'} key={key}>
                                         <NavLink to={prop.path} className="sidebar-link" activeClassName="active">
-                                            <i className={prop.icon} />
+                                            <img  src={require(`../../assets/images/${prop.icon}.png`)} />
                                             <span className="hide-menu">{prop.name}</span>
                                         </NavLink>
                                     </li>

@@ -11,10 +11,10 @@ import Login from 'components/login/login.jsx';
 import Forgetpassword from 'components/login/forgetpassword.jsx';
 
 import Signup from 'components/login/signup.jsx';
+
+import Tokenvarification from 'components/login/tokenvarification.jsx'
+import Resetpassword from 'components/login/resetpassword.jsx'
 // import LoginBase from 'components/login/loginBase.jsx';
-
-
-
 
 
 
@@ -28,9 +28,11 @@ ReactDOM.render(
     <Route  path="/signup" component={Signup} /> */}
    <Route exact  path="/" component={Login} />
     <Route  path="/forgetpassword" component={Forgetpassword} />
+    <Route  path="/varifytoken" component={Tokenvarification} />
+     <Route  path="/resetpassword" component={Resetpassword} />
     <Route  path="/signup" component={Signup} />
 
-    <Route  component={Fulllayout} />
+    <Route   component={Fulllayout} />
 
    
       {/* {indexRoutes.map((prop, key) => {

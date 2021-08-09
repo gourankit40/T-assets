@@ -12,7 +12,7 @@ import {
     DropdownMenu
 } from 'reactstrap';
 
-import profilephoto from '../../assets/images/users/1.jpg';
+import profilephoto from '../../assets/images/users/d3.jpg';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -21,6 +21,7 @@ import logodarkicon from '../../assets/images/logo-icon.png';
 import logolighticon from '../../assets/images/logo-light-icon.png';
 import logodarktext from '../../assets/images/logo-text.png';
 import logolighttext from '../../assets/images/logo-light-text.png';
+import logo from '../../assets/images/signin12.png';
 
 const Header = () => {
 
@@ -40,20 +41,11 @@ const Header = () => {
                     {/*--------------------------------------------------------------------------------*/}
                     <NavbarBrand href="/">
                         <b className="logo-icon">
-                            <img src={logodarkicon} alt="homepage" className="dark-logo" />
-                            <img
-                                src={logolighticon}
-                                alt="homepage"
-                                className="light-logo"
-                            />
+                            
+                            <img src={logo}></img>
                         </b>
                         <span className="logo-text">
-                            <img src={logodarktext} alt="homepage" className="dark-logo" />
-                            <img
-                                src={logolighttext}
-                                className="light-logo"
-                                alt="homepage"
-                            />
+                           
                         </span>
                     </NavbarBrand>
                     {/*--------------------------------------------------------------------------------*/}
@@ -66,7 +58,7 @@ const Header = () => {
                 <Collapse className="navbarbg" navbar data-navbarbg="skin1" >
                     <Nav className="ml-auto float-right" navbar>
                         <NavItem>
-                            <a href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/" className="btn btn-danger mr-2" style={{ marginTop: '15px' }}>Upgrade to Pro</a>
+                      
                         </NavItem>
                         {/*--------------------------------------------------------------------------------*/}
                         {/* Start Profile Dropdown                                                         */}
@@ -81,30 +73,13 @@ const Header = () => {
                                 />
                             </DropdownToggle>
                             <DropdownMenu right className="user-dd">
-                                <DropdownItem>
-                                    <i className="ti-user mr-1 ml-1" /> My Account
-                  </DropdownItem>
-                                <DropdownItem>
-                                    <i className="ti-wallet mr-1 ml-1" /> My Balance
-                  </DropdownItem>
-                                <DropdownItem>
-                                    <i className="ti-email mr-1 ml-1" /> Inbox
-                  </DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>
-                                    <i className="ti-settings mr-1 ml-1" /> Account Settings
-                  </DropdownItem>
+                             
                                 <DropdownItem divider />
                                 <DropdownItem href="/pages/login">
                                     <i className="fa fa-power-off mr-1 ml-1" /> Logout
                   </DropdownItem>
                                 <DropdownItem divider />
-                                <Button
-                                    color="success"
-                                    className="btn-rounded ml-3 mb-2 mt-2"
-                                >
-                                    View Profile
-                  </Button>
+
                             </DropdownMenu>
                         </UncontrolledDropdown>
                         {/*--------------------------------------------------------------------------------*/}

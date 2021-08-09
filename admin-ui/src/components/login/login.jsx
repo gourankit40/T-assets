@@ -4,10 +4,12 @@ import { Form,FormGroup,Label,Input,TabContent, TabPane, Nav, NavItem, NavLink, 
 import classnames from 'classnames';
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-
-import Sideimage from '../../assets/images/signin.png';
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  import Sideimage from '../../assets/images/signin.png';
 import "../../assets/scss/all/login.css";
 
+import logo from '../../assets/images/signin12.png';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -28,24 +30,38 @@ const Login = () => {
       if(activeTab !== tab) setActiveTab(tab);
     }
 
+
+
     const handleSubmit = (evt) => {
       evt.preventDefault();
   
       const userLoginData = {
-        email: userName,
+        username: userName,
         password: password,
       };
-  
+      if(!userName || !password){
+        toast('please enter valid username and password!')
+        //toast("Wow so easy!");
+        return false;
+      }
       axios
-        .post(`api/login`, userLoginData)
+        .post(`http://127.0.0.1:3001/api/user/login`, userLoginData)
         .then((res) => {
           setLoading(true);
           if (res.status === 200 || res.status === "ok") {
-            localStorage.setItem("token", res.data.token);
+            if(res.data.message == "user exist"){
+            
+                           localStorage.setItem("token", res.data.token);
             history.push({
               pathname: "/dashboard",
             });
             setLoading(false);
+            
+            } else {
+             toast(res.data.message + " or password is not matched!");
+             setLoading(false);
+            }
+
           }
           return console.log("Something Went Wrong");
         })
@@ -72,10 +88,19 @@ const Login = () => {
     return (
        <>
     <div className="login">
+    <div className="loginlogo"><img src={logo}></img></div>
+    
+     
         <div className="row col-12 m-0 p-0">
           <div className="col-6 img-sec">
               
-            <img src={Sideimage} alt="login Img" className="image" />
+          <img src={Sideimage} alt="login Img" className="image" />
+
+<p className="logintext">Best Invoicing</p>
+
+<p className="loginsubtext">Discounting platform for <br/>
+Enterprise & Landers
+</p>
           </div>
           <div className="col content-center">
 
@@ -84,23 +109,7 @@ const Login = () => {
          
       <div>
       <Nav tabs>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === '1' })}
-            onClick={() => { toggle('1'); }}
-          >
-            Financial User
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === '2' })}
-            onClick={() => { toggle('2'); }}
-          >
-            Enterprise User
-          </NavLink>
-        </NavItem>
-      </Nav>
+        </Nav>
       <TabContent className="logintabcontent" activeTab={activeTab}>
         <TabPane tabId="1">
          
@@ -115,7 +124,7 @@ const Login = () => {
                       Email Address
                     </Label> */}
                     <Input
-                      type="email"
+                      type="text"
                       onChange={(e) => setName(e.target.value)}
                       autoComplete="off" placeholder="User Name"
                     />
@@ -137,7 +146,7 @@ const Login = () => {
                 <Col sm="6">
                
                 <div className="nt-register-txt">
-                <a>Login With OTP</a>
+                
                   {/* <span className="signup">
                   
                     <Link to="/signup">Signup</Link> 
@@ -146,7 +155,7 @@ const Login = () => {
 </Col>
 <Col sm="6">
                 <div className="f-password">
-                  <Link to="/forgetpassword">Forgot Password?</Link>
+                 
                 </div>
                 </Col>
 </Row>
@@ -209,6 +218,7 @@ const Login = () => {
                    {isLoading ? "Loading..." : "Login"}
                  </Button>
                </Form>
+                 
              </div>
            </div>
         </TabPane>
@@ -216,10 +226,9 @@ const Login = () => {
 
      
     </div>
+    <ToastContainer />
     <div>
-         <p class="joinnowtext">Still not part of Tassets?         
-                  <Link class="logina" to="/signup">Join Now</Link>
-         </p>
+
         </div>
     </Col>
           </Row>

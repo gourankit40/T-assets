@@ -1,128 +1,273 @@
-import React from "react";
+import faker from 'faker';
+import React, {useEffect, useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { 
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Avatar,
+    Grid,
+    Typography,
+    TablePagination,
+    TableFooter,
+    Button
+ } from '@material-ui/core';
+import axios from "axios";
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+const useStyles = makeStyles((theme) => ({
+    table: {
+      minWidth: 650,
+      borderCollapse: 'separate',
+     backgroundColor:'rgb(221,222,222)',
+        borderSpacing:'0 15px',
+    },
 
-import img1 from '../../../assets/images/users/1.jpg';
-import img2 from '../../../assets/images/users/2.jpg';
-import img3 from '../../../assets/images/users/3.jpg';
-import img4 from '../../../assets/images/users/4.jpg';
+  
+    tableContainer: {
+        // borderRadius: 15,
+        margin: '10px 10px',
+       
+        // backgroundColor: '#ccc',
+        backgroundColor: 'rgb(221,222,222)',
+    padding: '15px',
+    borderRadius: '15px',
+       
+    },
+    tableHeaderCell: {
+        fontWeight: '200',
+        backgroundColor: '#0D3E69',
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+        padding: '6px',
+        fontSize:'12px',
+    },
+    tableRow: {
+     
+      borderCollapse: 'separate',
+   
+      borderSpacing:'0 15px',
+  },
+    tableCell: {
+      fontWeight: '200',
+      // backgroundColor: 'red',
+      color: '#A5A5A5',
+      // padding:0,
+     fontSize:'11px',
+     
+  },
+    avatar: {
+        backgroundColor: theme.palette.primary.light,
+        color: theme.palette.getContrastText(theme.palette.primary.light)
+    },
+    name: {
+         
+        // color: theme.palette.secondary.dark
+    },
+    status: {
+        fontWeight: 'bold',
+        fontSize: '0.75rem',
+        color: 'white',
+        backgroundColor: 'grey',
+        borderRadius: 8,
+        padding: '3px 10px',
+        display: 'inline-block'
+    },
+    footCls:
+    {
+ overflow:'inherit'
+    }
+  }));
 
-import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    Input,
-    Table
-} from 'reactstrap';
 
-const Projects = () => {
-    return (
-        /*--------------------------------------------------------------------------------*/
-        /* Used In Dashboard-4 [General]                                                  */
-        /*--------------------------------------------------------------------------------*/
 
-        <Card>
-            <CardBody>
-                <div className="d-flex align-items-center">
-                    <div>
-                        <CardTitle>Projects of the Month</CardTitle>
-                        <CardSubtitle>Overview of Latest Month</CardSubtitle>
-                    </div>
-                    <div className="ml-auto d-flex no-block align-items-center">
-                        <div className="dl">
-                            <Input type="select" className="custom-select">
-                                <option value="0">Monthly</option>
-                                <option value="1">Daily</option>
-                                <option value="2">Weekly</option>
-                                <option value="3">Yearly</option>
-                            </Input>
-                        </div>
-                    </div>
-                </div>
-                <Table className="no-wrap v-middle" responsive>
-                    <thead>
-                        <tr className="border-0">
-                            <th className="border-0">Team Lead</th>
-                            <th className="border-0">Project</th>
+function Projects() {
+  
+ 
 
-                            <th className="border-0">Status</th>
-                            <th className="border-0">Weeks</th>
-                            <th className="border-0">Budget</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div className="d-flex no-block align-items-center">
-                                    <div className="mr-2"><img src={img1} alt="user" className="rounded-circle" width="45" /></div>
-                                    <div className="">
-                                        <h5 className="mb-0 font-16 font-medium">Hanna Gover</h5><span>hgover@gmail.com</span></div>
-                                </div>
-                            </td>
-                            <td>Elite Admin</td>
+  const timeout = '';
+  const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  var [USERS, setusers] = React.useState([]);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  let USERSMANUPULATE = [], STATUSES = ['Active', 'Pending', 'Blocked'];
 
-                            <td>
-                                <i className="fa fa-circle text-orange" id="tlp1"></i>
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  
+  
+  useEffect(() => {
 
-                            </td>
-                            <td>35</td>
-                            <td className="blue-grey-text  text-darken-4 font-medium">$96K</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="d-flex no-block align-items-center">
-                                    <div className="mr-2"><img src={img2} alt="user" className="rounded-circle" width="45" /></div>
-                                    <div className="">
-                                        <h5 className="mb-0 font-16 font-medium">Daniel Kristeen</h5><span>Kristeen@gmail.com</span></div>
-                                </div>
-                            </td>
-                            <td>Elite Admin</td>
+   // function getAllUsers(){
+          axios
+            .get(`http://127.0.0.1:3001/api/user/getAllParentUser`)        
+            .then((res) => {
+            console.log(res.data.result)
+    for(let i=0;i<res.data.result.length;i++) {
+        USERS[i] = {
+            name: res.data.result[i].username,
+            email: res.data.result[i].email,
+            phone: res.data.result[i].contact_number,
+            status: (res.data.result[i].isauth && res.data.result[i].isauth == 1) ? 'approved' : 'rejected'
+        }
+      USERSMANUPULATE.push(res.data.result[i].username);
+    }
+    setusers(USERS)
+    let element = document.getElementsByClassName("hide-menu")[0];
+                element.click()
 
-                            <td>
-                                <i className="fa fa-circle text-success" id="tlp2"></i>
+            })
+            .catch((err) => {
+              if (err.response) {
+                //setError(err.response.data.error);
+                //clearFields();
+              }
+              return console.log("No Error Found");
+            });
+   // }
+   // getAllUsers();
+   
+  }, [])
+  
+    const handleClick = (evt,txt, index) => {
 
-                            </td>
-                            <td>35</td>
-                            <td className="blue-grey-text  text-darken-4 font-medium">$96K</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="d-flex no-block align-items-center">
-                                    <div className="mr-2"><img src={img3} alt="user" className="rounded-circle" width="45" /></div>
-                                    <div className="">
-                                        <h5 className="mb-0 font-16 font-medium">Julian Josephs</h5><span>Josephs@gmail.com</span></div>
-                                </div>
-                            </td>
-                            <td>Elite Admin</td>
+     var userLoginData = {
+        email : evt.email,
+        status: txt
+     }
+	         axios
+        .post(`http://127.0.0.1:3001/api/user/approveUser`,userLoginData)        
+        .then((res) => {
+            console.log(res.data.result);
+            if(res.data.result){
+                const list = [...USERS];
+                let newIndex = list.findIndex((newrows)=>{
+                  return newrows.email === evt.email
+                 })
+                 console.log(txt)
+                 list[newIndex].status = txt;
+                 USERS = list;
+                 console.log(list)
+                 setusers(USERS);
+                 toast(txt + " successfully")
+            } else {
+                toast("Somthing went wrong")
+            }
+            this.getAllUsers();
+           
+        })
+        .catch((err) => {
+          if (err.response) {
+            //setError(err.response.data.error);
+            //clearFields();
+          }
+          return console.log("No Error Found");
+        });
+	}
 
-                            <td>
-                                <i className="fa fa-circle text-success" id="tlp3"></i>
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+  const [userName, setName] = useState("");
+  
+   const editIcon = (
+    <Button> Approve
+    </Button>
+    
+  );
+  
+     const editIcon1 = (
+    <Button> Reject
+    </Button>
+    
+  );
+  
 
-                            </td>
-                            <td>35</td>
-                            <td className="blue-grey-text  text-darken-4 font-medium">$96K</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="d-flex no-block align-items-center">
-                                    <div className="mr-2"><img src={img4} alt="user" className="rounded-circle" width="45" /></div>
-                                    <div className="">
-                                        <h5 className="mb-0 font-16 font-medium">Jan Petrovic</h5><span>hgover@gmail.com</span></div>
-                                </div>
-                            </td>
-                            <td>Elite Admin</td>
+  return (
+  <>
+    <TableContainer component={Paper} className={classes.tableContainer}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.tableHeaderCell}>User Name</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Email</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Mobile</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Status</TableCell>
+            <TableCell className={classes.tableHeaderCell}></TableCell>
+            <TableCell className={classes.tableHeaderCell}></TableCell>
+          </TableRow>
+        </TableHead>
+        
+ 
+        <TableBody>
 
-                            <td>
-                                <i className="fa fa-circle text-orange" id="tlp4"></i>
 
-                            </td>
-                            <td>35</td>
-                            <td className="blue-grey-text  text-darken-4 font-medium">$96K</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </CardBody>
-        </Card >
-    );
+        
+         {USERS.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row,i) => (
+            <TableRow key={row.name} >
+              <TableCell>
+                  <Grid container>
+
+                      <Grid item lg={5}>
+                          <Typography className={classes.name}>{row.name}</Typography>
+                      </Grid>
+                  </Grid>
+                </TableCell>
+              <TableCell>
+                  <Typography lg={5} color="primary" variant="subtitle2">{row.email}</Typography>
+                </TableCell>
+              <TableCell lg={5}>{row.phone}</TableCell>
+              <TableCell>
+                  <Typography 
+                    className={classes.status}
+                    style={{
+                        backgroundColor: 
+                        ((row.status === true && 'green') ||
+                        (row.status === false && 'red') ||
+                        (row.status === null && 'red'))
+                    }}
+                  onChange={(e) => setName(e.target.value)} >{row.status}</Typography>
+                </TableCell >
+                 <TableCell onClick={() => handleClick(row,'approved',i)}>
+                   {editIcon}
+                 </TableCell>
+            <TableCell onClick={() => handleClick(row,'rejected',i)}>
+            {editIcon1}
+            </TableCell>
+            </TableRow>
+          ))}
+
+
+
+
+
+
+        </TableBody>
+        <TableFooter>
+        <TablePagination className={classes.footCls}
+            rowsPerPageOptions={[5,10, 15]}
+            component="div"
+            count={USERS.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+        </TableFooter>
+      </Table>
+    </TableContainer>
+     <ToastContainer />
+     </>
+  );
+
+
+  
+
 }
 
 export default Projects;
