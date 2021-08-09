@@ -38,3 +38,76 @@ CREATE TABLE USER (user_pk INT(10)  NOT NULL AUTO_INCREMENT,username VARCHAR(20)
 | modificationtime | datetime     | YES  |     | CURRENT_TIMESTAMP |                |
 +------------------+--------------+------+-----+-------------------+----------------+
 
+CREATE TABLE USERTOKEN (t_id INT(10)  NOT NULL AUTO_INCREMENT,email VARCHAR(20),token_number VARCHAR(20),expirytime DATETIME DEFAULT CURRENT_TIMESTAMP,creationtime DATETIME DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (t_id));
+
++--------------+-------------+------+-----+-------------------+----------------+
+| Field        | Type        | Null | Key | Default           | Extra          |
++--------------+-------------+------+-----+-------------------+----------------+
+| t_id         | int(10)     | NO   | PRI | NULL              | auto_increment |
+| email        | varchar(20) | YES  |     | NULL              |                |
+| token_number | varchar(20) | YES  |     | NULL              |                |
+| expirytime   | datetime    | YES  |     | CURRENT_TIMESTAMP |                |
+| creationtime | datetime    | YES  |     | CURRENT_TIMESTAMP |                |
++--------------+-------------+------+-----+-------------------+----------------+
+
+CREATE TABLE ACCOUNT_INFO (account_id INT(10) NOT NULL AUTO_INCREMENT,user_fk INT(10),account_name VARCHAR(50),pan_number VARCHAR(15),gst_in VARCHAR(20),account_number VARCHAR(30),bank_name VARCHAR(20),ifsc_code VARCHAR(15),email VARCHAR(20),primary_number VARCHAR(10),address VARCHAR(80),city VARCHAR(20),state VARCHAR(20),FOREIGN KEY (user_fk) REFERENCES USER(user_pk),PRIMARY KEY (account_id));
+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| account_id     | int(10)     | NO   | PRI | NULL    | auto_increment |
+| user_fk        | int(10)     | YES  | MUL | NULL    |                |
+| account_name   | varchar(50) | YES  |     | NULL    |                |
+| pan_number     | varchar(15) | YES  |     | NULL    |                |
+| gst_in         | varchar(20) | YES  |     | NULL    |                |
+| account_number | varchar(30) | YES  |     | NULL    |                |
+| bank_name      | varchar(20) | YES  |     | NULL    |                |
+| ifsc_code      | varchar(15) | YES  |     | NULL    |                |
+| email          | varchar(20) | YES  |     | NULL    |                |
+| primary_number | varchar(10) | YES  |     | NULL    |                |
+| address        | varchar(80) | YES  |     | NULL    |                |
+| city           | varchar(20) | YES  |     | NULL    |                |
+| state          | varchar(20) | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+CREATE TABLE PERSONAL_INFO (pi_id INT(10) NOT NULL AUTO_INCREMENT,name VARCHAR(20),designation VARCHAR(20),email VARCHAR(50),primary_number VARCHAR(20),account_fk INT(10),FOREIGN KEY (account_fk) REFERENCES ACCOUNT_INFO(account_id),PRIMARY KEY (pi_id));
+
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| pi_id          | int(10)     | NO   | PRI | NULL    | auto_increment |
+| name           | varchar(20) | YES  |     | NULL    |                |
+| designation    | varchar(20) | YES  |     | NULL    |                |
+| email          | varchar(50) | YES  |     | NULL    |                |
+| primary_number | varchar(20) | YES  |     | NULL    |                |
+| account_fk     | int(10)     | YES  | MUL | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+CREATE TABLE USER_PERMISSION (userpermission_id INT(10)  NOT NULL AUTO_INCREMENT,name VARCHAR(20),PRIMARY KEY (userpermission_id));
+
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| userpermission_id | int(10)     | NO   | PRI | NULL    | auto_increment |
+| name              | varchar(20) | YES  |     | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+
+CREATE TABLE ASSIGNEDPERMISSION (user_fk INT(10)  NOT NULL,userpermission_fk INT(10)  NOT NULL,
+FOREIGN KEY (user_fk) REFERENCES USER(user_pk),
+FOREIGN KEY (userpermission_fk) REFERENCES USER_PERMISSION(userpermission_id),
+PRIMARY KEY (user_fk,userpermission_fk));
+
++-------------------+---------+------+-----+---------+-------+
+| Field             | Type    | Null | Key | Default | Extra |
++-------------------+---------+------+-----+---------+-------+
+| user_fk           | int(10) | NO   | PRI | NULL    |       |
+| userpermission_fk | int(10) | NO   | PRI | NULL    |       |
++-------------------+---------+------+-----+---------+-------+
+
+
+ALTER TABLE USER ADD (firstname  VARCHAR(20),lastname  VARCHAR(20));
+ALTER TABLE USER ADD (permission  VARCHAR(20));
+ALTER TABLE USER ADD (isroot  VARCHAR(10));
+
+ALTER TABLE ACCOUNT_INFO ADD (companyname  VARCHAR(20));
+ALTER TABLE ACCOUNT_INFO ADD (refrenceid  VARCHAR(20));
+ALTER TABLE USER ADD (refrenceid  VARCHAR(20));

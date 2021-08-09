@@ -25,7 +25,7 @@ app.use(session({
 app.use(express.static(path.resolve(__dirname, '../my-app/build')));
 app.use(express.json());
 app.use(cors({
-  origin: [process.env.LOCAL_URL],
+  origin: [process.env.LOCAL_URL,process.env.LOCAL_URL1],
   methods: ['GET','POST'],
   credentials: true	
 }));

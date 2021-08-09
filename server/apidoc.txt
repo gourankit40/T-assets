@@ -1,0 +1,138 @@
+registration (POST)
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.email;
+  const phone = req.body.phone;
+  const role = req.body.role
+====================================================================  
+myProfileInsert (POST)
+     const accountName = req.body.accountName;
+     const panNumber = req.body.panNumber;
+     const gstNumber = req.body.gstNumber;
+     const accountNumber = req.body.accountNumber;
+     const bankName = req.body.bankName;
+     const ifscCode = req.body.ifscCode;
+     const email = req.body.email;
+     const primaryNumber = req.body.primaryNumber;
+     const address = req.body.address;
+     const city = req.body.city;
+     const state = req.body.state;
+     
+     const userId = req.body.userid; 
+=================================================================
+myProfileUpdate (POST)
+     const accountName = req.body.accountName;
+     const panNumber = req.body.panNumber;
+     const gstNumber = req.body.gstNumber;
+     const accountNumber = req.body.accountNumber;
+     const bankName = req.body.bankName;
+     const ifscCode = req.body.ifscCode;
+     const email = req.body.email;
+     const primaryNumber = req.body.primaryNumber;
+     const address = req.body.address;
+     const city = req.body.city;
+     const state = req.body.state;
+     
+     const userId = req.body.userid;     
+======================================================================   
+personalInfoInsert (POST)
+           const personName = req.body.personName;
+     const personDesignation = req.body.personDesignation;
+     const personEmail = req.body.personEmail;
+     const personPrimaryNumber = req.body.personPrimaryNumber;
+     
+     const myaccountId = req.body.insertId;
+======================================================================
+personalInfoUpdate (POST)
+        const personName = req.body.personName;
+     const personDesignation = req.body.personDesignation;
+     const personEmail = req.body.personEmail;
+     const personPrimaryNumber = req.body.personPrimaryNumber;
+     
+     const myaccountId = req.body.insertId;
+======================================================================
+insertChildUser (POST)
+     const firstname = req.body.firstname;
+     const lastname = req.body.lastname;
+     const gstnumber = req.body.gst_in;
+     const accountnumber = req.body.accountnumber;
+     
+     const email = req.body.email;
+     const username = req.body.username;
+     const password = req.body.password;
+     const refrencenumber = req.body.refrencenumber;
+          
+     const parentid = req.body.userpk;
+     const roleid = req.body.role_fk;
+=====================================================================
+updateChildUser (POST)
+         const firstname = req.body.firstname;
+     const lastname = req.body.lastname;
+     const email = req.body.email;
+     const username = req.body.username;
+     const password = req.body.password;
+     const gstnumber = req.body.gst_in;
+     const accountnumber = req.body.accountnumber;
+     const refrencenumber = req.body.refrencenumber;
+          
+     const userpk =   req.body.userpk;   
+     const parentid = req.body.parentuserpk;
+     const roleid = req.body.role_fk;
+=======================================================================
+insertChildUserAccountDetails (POST)
+   	const gstnumber = req.body.gst_in;    
+	const accountnumber = req.body.accountnumber;
+	
+	const userid = req.body.userid;
+=====================================================================
+updateChildUserAccountDetails (POST)
+   	const gstnumber = req.body.gst_in;    
+	const accountnumber = req.body.accountnumber;
+	
+	const userid = req.body.userid;
+	const accountinfoid = req.body.accountinfoid;
+======================================================================
+setUserPermission (POST)
+   	const userpermission = req.body.permission;
+	const userid = req.body.userid;
+====================================================================
+sendMail (POST)
+        const emails = req.body.email;
+     const name = req.body.name;
+     const token = req.body.token;
+====================================================================
+getAllParentUser (GET)
+===================== =================================================
+getAllChildUser (GET)
+====================================================================
+approveUser (POST)
+  	const email = req.body.email;
+	const status = req.body.status == 'pending' ? 1 : 0;
+====================================================================
+updatePassword (POST)
+  	  const email = req.body.email;
+      const password = req.body.password;
+===================================================================
+savePasswordToken (POST)
+      const email = req.body.email;
+   const tokennumber = req.body.tokennumber;
+   const expirytime = new Date((new Date().getTime() + 5*60000));
+===============================================================
+getPasswordToken (GET)  getPasswordToken?key=token_number&value='+token
+======================== =====================================
+getUserDetails (GET) getUserDetails?key=token_number&value='+token
+ =============================================================
+getUserAccountInfo  (GET) getUserAccountInfo?key=token_number&value='+token
+=============================================================
+getUserPersonalInfo (GET)  getUserAccountInfo?key=token_number&value='+token
+=============================================================
+login (POST)
+     const username = req.body.username;
+  const password = req.body.password;
+================================================================
+usercheck (GET)  usercheck?key=token_number&value='+token
+================================================================
+getrole (GET)
+==============================================================
+islogedin (POST)
+              	        			                    
